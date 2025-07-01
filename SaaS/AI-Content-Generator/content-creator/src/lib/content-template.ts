@@ -5,6 +5,8 @@ import {
   FaLinkedin,
   FaTwitter,
 } from "react-icons/fa";
+//List of content templates for content creator app
+//Here we are going to map
 
 export const contentTemplates = [
   {
