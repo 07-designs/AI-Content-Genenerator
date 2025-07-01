@@ -30,12 +30,12 @@ const categories = [
   },
 ];
 
-// {
-//   onSearchInput,
-// }: {
-//   onSearchInput: React.Dispatch<React.SetStateAction<string | undefined>>;
-// }
-export const SearchDashboard = () => {
+
+export const SearchDashboard = ({
+  onSearchInput,
+}: {
+  onSearchInput: React.Dispatch<React.SetStateAction<string | undefined>>;
+}) => {
   return (
     <div className="mx-5 py-2">
       <div className="flex  md:flew-row gap-2 mt-5 py-6 px-4 bg-white rounded">
@@ -45,7 +45,7 @@ export const SearchDashboard = () => {
             type="text"
             placeholder="Search..."
             className="bg-transparent outline-none text-black"
-            //onChange={(e) => onSearchInput(e.target.value)}
+            onChange={(e) => onSearchInput(e.target.value)}
           />
         </div>
         {/* <Categories items={categories} /> */}
