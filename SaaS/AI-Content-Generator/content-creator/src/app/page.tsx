@@ -1,10 +1,12 @@
-import Link from "next/link";
-import {Logo} from "@/components/logo";
-import { redirect } from "next/navigation";
-import { auth } from "@clerk/nextjs/server";
+import  Auth  from "@/components/auth";
+import { Logo } from "@/components/logo";
 
-export default function Home() {
-  // const  {userId} = auth();
+import Link from "next/link";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+
+export default async function Home() {
+  // const { userId } = await auth();
 
   // if (userId) {
   //   redirect("/dashboard");
@@ -14,8 +16,8 @@ export default function Home() {
     <div className="flex flex-col min-h-[100dvh]">
       <header className="px-4 mt-5 lg:px-6 h-14 flex items-center">
         <Logo />
-        <nav className="ml-auto hidden lg:flex gap-4 sm:gap-6">
-          {/* <Auth /> */}
+        <nav className="bg-amber-300 ml-auto hidden lg:flex gap-4 sm:gap-6">
+          <Auth />
         </nav>
       </header>
       <main className="flex-1">
