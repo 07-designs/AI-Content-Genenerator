@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { contentTemplates } from "@/lib/content-template";
+import { contentTemplates } from '@/lib/content-template'
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 

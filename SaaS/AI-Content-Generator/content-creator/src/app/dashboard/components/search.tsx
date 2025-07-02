@@ -1,7 +1,7 @@
 import Auth from '@/components/auth'
 import { SearchIcon } from "lucide-react";
 import React from "react";
-//import { Categories } from "./categories";
+import Categories from "./categories";
 
 const categories = [
   {
@@ -48,7 +48,9 @@ export const SearchDashboard = ({
             onChange={(e) => onSearchInput(e.target.value)}
           />
         </div>
-        {/* <Categories items={categories} /> */}
+        <div>
+        <Categories items={categories} />
+        </div>
         <div className="ml-auto">
           <Auth />
         </div>
