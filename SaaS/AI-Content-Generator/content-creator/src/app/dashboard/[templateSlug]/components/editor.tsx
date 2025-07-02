@@ -1,21 +1,26 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import { useMemo } from "react";
-import "react-quill/dist/quill.snow.css";
+import { useEditor, EditorContent } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import Placeholder from "@tiptap/extension-placeholder";
 
-export const Editor = ({ value }: { value: string }) => {
-// Dynamically import ReactQuill only on the client side
-const ReactQuill = useMemo(
-    () => dynamic(() => import("react-quill"), { ssr: false }),
-    []
-) as any; // TypeScript: react-quill has no types for React 19 yet
+export const Editor = ({ value, onChange }: { value: string; onChange: (val: string) => void }) => {
+  const editor = useEditor({
+    extensions: [
+      StarterKit,
+      Placeholder.configure({
+        placeholder: "Start typing...",
+      }),
+    ],
+    content: value,
+    onUpdate: ({ editor }) => {
+      onChange(editor.getHTML());
+    },
+  });
 
   return (
-    <ReactQuill
-      theme="snow"
-      value={value}
-      className="h-[350px] pb-10 bg-white whitespace-pre-wrap"
-    ></ReactQuill>
+    <div className="bg-white p-4 rounded border">
+      <EditorContent editor={editor} className="min-h-[300px] focus:outline-none" />
+    </div>
   );
 };
