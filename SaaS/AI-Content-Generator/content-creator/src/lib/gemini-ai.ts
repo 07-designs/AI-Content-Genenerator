@@ -2,9 +2,8 @@
 import { GoogleGenAI } from "@google/genai";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const genAi = new GoogleGenerativeAI(process.env.Gemini_api_key as string);
-
-const model = genAi.getGenerativeModel({ model: "gemini-2.5-flash" });
+const genAi = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string);
+const model = genAi.getGenerativeModel({ model: "gemini-1.5-pro-latest" });
 
 const generationConfig = {
   temperature: 1,
